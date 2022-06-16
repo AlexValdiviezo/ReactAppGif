@@ -17,7 +17,6 @@ export const GifGrid = ({category}) => {
                     let animaciones = ["animate__bounce", "animate__flash", "animate__pulse", "animate__rubberBand", "animate__shakeX", "animate__shakeY", "animate__headShake", "animate__swing", "animate__tada", "animate__wobble", "animate__jello", "animate__heartBeat"];
                     let indice = Math.floor(Math.random() * animaciones.length);
                     let clase = "card animate__animated " + animaciones[indice];
-                    console.log(clase);
                     return <div className={clase} key={e.id}><center><img src={e.url}/><h3>{e.title}</h3></center></div>
                 })
                 }
