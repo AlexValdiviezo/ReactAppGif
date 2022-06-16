@@ -5,18 +5,27 @@ export const AddCategory = ({setCategories}) => {
 
     const [inputValue, setInputValue] = useState('Buscar...');
 
+    useEffect(()=>{
+        if(inputValue.length > 0){
+            setCategories(e => {
+                e.splice(0,1, inputValue);
+                console.log(e);
+                return [...e];
+            })
+            console.log('cambio');
+        }
+    }, [inputValue]);
     
-    const handleInputChange = ( e ) =>{
-        setInputValue(e.target.value);
+    const handleInputChange = ( event ) =>{
+        setInputValue(event.target.value);
     }
 
     const handleSubmit = (event) =>{
         event.preventDefault();
         if(inputValue.trim().length > 0){
             setCategories(e => {
-                let [...rest] = e;
-                console.log(e);
-                return [inputValue, ...rest];
+                e.splice(0,0,'');
+                return [...e];
             });
         }
         setInputValue('');
